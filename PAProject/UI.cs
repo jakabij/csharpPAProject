@@ -40,6 +40,13 @@ namespace PAProject
             return type;
         }
 
+        public string PlayerNameFromUser()
+        {
+            Console.WriteLine("What is the player's name?");
+            return Console.ReadLine();
+        }
+
+
         public string[] GameDatasFromUser()
         {
             string[] dataNames = { "developer", "name","rating"};
