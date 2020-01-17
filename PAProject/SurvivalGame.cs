@@ -6,16 +6,14 @@ namespace PAProject
 {
     class SurvivalGame : VideoGame
     {
-        string Effect { get; set; }
-        public SurvivalGame(string developer, string name, double rating, string type, string effect) : base(developer, name, rating, type)
+        public SurvivalGame(string developer, string name, double rating, string type) 
+            :base(developer, name, rating, type)
         {
-            Effect = effect;
         }
 
-        public override string EffectToPlayer()
+        public override void EffectToPlayer(Player player)
         {
-            UI ui = new UI();
-            return ui.EffectToPlayerPrinting(Effect);
+            player.playedSurvivalGames.Add(base.Name);
         }
     }
 }

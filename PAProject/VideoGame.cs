@@ -6,12 +6,12 @@ namespace PAProject
 {
     public abstract class VideoGame
     {
-        string Developer { get; set; }
-        string Name { get; set; }
-        double Rating { get; set; }
-        string Type { get; set; }
+        public string Developer { get; set; }
+        public string Name { get; set; }
+        public double Rating { get; set; }
+        public string Type { get; set; }
 
-        public abstract string EffectToPlayer();
+        public abstract void EffectToPlayer(Player player);
 
         public VideoGame(string developer,string name,double rating,string type)
         {

@@ -6,16 +6,14 @@ namespace PAProject
 {
     class ActionGame : VideoGame
     {
-        string Effect { get; set; }
-        public ActionGame(string developer, string name, double rating, string type, string effect) : base(developer, name, rating, type)
+        public ActionGame(string developer, string name, double rating, string type) 
+            :base(developer, name, rating, type)
         {
-            Effect = effect;
         }
 
-        public override string EffectToPlayer()
+        public override void EffectToPlayer(Player player)
         {
-            UI ui = new UI();
-            return ui.EffectToPlayerPrinting(Effect);
+            player.PlayedActionGames.Add(base.Name);
         }
     }
 }
