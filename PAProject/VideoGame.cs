@@ -8,9 +8,17 @@ namespace PAProject
     {
         string Developer { get; set; }
         string Name { get; set; }
-        int Rating { get; set; }
+        double Rating { get; set; }
         string Type { get; set; }
 
         public abstract void EffectToPlayer();
+
+        VideoGame(string developer,string name,double rating,string type)
+        {
+            Developer = developer;
+            Name = name;
+            Rating = rating;
+            Type = type;
+        }
     }
 }
