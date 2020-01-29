@@ -2,7 +2,7 @@
   "profiles": {
     "PAProjectVideoGames": {
       "commandName": "Project",
-      "commandLineArgs": "create"
+      "commandLineArgs": "list"
     }
   }
 }

@@ -11,7 +11,7 @@ namespace ApiLib
         public double Rating { get; set; }
         public string Type { get; set; }
 
-        public abstract void EffectToPlayer(Player player);
+        public abstract void EffectToPlayer(Player player,Object game);
 
         public VideoGame()
         {

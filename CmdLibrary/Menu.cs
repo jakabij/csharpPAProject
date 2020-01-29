@@ -19,33 +19,34 @@ namespace CmdLibrary
             {
                 string[] datas = ui.GameDatasFromUser();
                 HorrorGame game = new HorrorGame(datas[developer], datas[name], Double.Parse(datas[rating]), type);
-                game.EffectToPlayer(player);
+                game.EffectToPlayer(player,game);
             }
 
             else if (type.Equals("Survival"))
             {
                 string[] datas = ui.GameDatasFromUser();
                 SurvivalGame game = new SurvivalGame(datas[developer], datas[name], Double.Parse(datas[rating]), type);
-                game.EffectToPlayer(player);
+                game.EffectToPlayer(player,game);
             }
 
             else if (type.Equals("Adventure"))
             {
                 string[] datas = ui.GameDatasFromUser();
                 AdventureGame game = new AdventureGame(datas[developer], datas[name], Double.Parse(datas[rating]), type);
-                game.EffectToPlayer(player);
+                game.EffectToPlayer(player,game);
             }
 
             else if (type.Equals("Action"))
             {
                 string[] datas = ui.GameDatasFromUser();
                 ActionGame game = new ActionGame(datas[developer], datas[name], Double.Parse(datas[rating]), type);
-                game.EffectToPlayer(player);
+                game.EffectToPlayer(player,game);
             }
 
             else
             {
                 ui.ErrorMessage("Wrong type of attribute!");
+                System.Environment.Exit(0);
             }
 
         }

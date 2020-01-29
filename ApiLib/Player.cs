@@ -9,14 +9,19 @@ namespace ApiLib
     {
         [XmlAttribute("Player_Name")]
         public string Name { get; set; }
-        [XmlArrayItem("Game_Name")]
-        public List<string> playedHorrorGames = new List<string>();
-        [XmlArrayItem("Game_Name")]
-        public List<string> playedSurvivalGames = new List<string>();
-        [XmlArrayItem("Game_Name")]
-        public List<string> playedAdventureGames = new List<string>();
-        [XmlArrayItem("Game_Name")]
-        public List<string> playedActionGames = new List<string>();
+
+        [XmlArrayItem("Horror_Game")]
+        public List<HorrorGame> playedHorrorGames = new List<HorrorGame>();
+
+        [XmlArrayItem("Survival_Game")]
+        public List<SurvivalGame> playedSurvivalGames = new List<SurvivalGame>();
+
+        [XmlArrayItem("Adventure_Game")]
+        public List<AdventureGame> playedAdventureGames = new List<AdventureGame>();
+
+        [XmlArrayItem("Action_Game")]
+        public List<ActionGame> playedActionGames = new List<ActionGame>();
+
         public int playedGames = 0;
 
         public Player()

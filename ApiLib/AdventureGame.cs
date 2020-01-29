@@ -15,9 +15,9 @@ namespace ApiLib
         {
         }
 
-        public override void EffectToPlayer(Player player)
+        public override void EffectToPlayer(Player player,Object game)
         {
-            player.playedAdventureGames.Add(base.Name);
+            player.playedAdventureGames.Add((AdventureGame)game);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using ApiLib;
 
@@ -68,13 +69,76 @@ namespace CmdLibrary
         }
 
 
+
+        public void Creating(string playerName,string type)
+        {
+            DataManager manager = new DataManager();
+            Menu menu = new Menu();
+
+            Player player = new Player(playerName);
+
+            if (File.Exists("players.xml"))
+            {
+                List<Player> players = manager.LoadPlayers();
+                bool foundIt = false;
+                for (int count = 0; count < players.Count; count++)
+                {
+                    if (players[count].Name.Equals(playerName))
+                    {
+                        menu.TypeChoosing(type, players[count]);
+                        manager.SavingPlayers(players[count], true);
+                        foundIt = true;
+                    }
+                }
+                if (!foundIt)
+                {
+                    menu.TypeChoosing(type, player);
+                    manager.SavingPlayers(player, false);
+                }
+            }
+            else
+            {
+                menu.TypeChoosing(type, player);
+                manager.SavingPlayers(player, false);
+            }
+        }
+
+
+
         public void ListAllSavedPlayers()
         {
             DataManager manager = new DataManager();
             List<Player> listOfAllPlayer=manager.LoadPlayers();
             for(int count=0;count<listOfAllPlayer.Count;count++)
             {
-                Console.WriteLine("\t"+listOfAllPlayer[count].Name);
+                Console.WriteLine("---------------------------------------------------\n"+listOfAllPlayer[count].Name);
+                Console.WriteLine("\t-HORROR GAMES-");
+                for(int countOfGames=0; countOfGames < listOfAllPlayer[count].playedHorrorGames.Count; countOfGames++)
+                {
+                    Console.WriteLine("\t\t"+listOfAllPlayer[count].playedHorrorGames[countOfGames].Name+
+                        " (Rating: "+ listOfAllPlayer[count].playedHorrorGames[countOfGames].Rating+")");
+                }
+
+                Console.WriteLine("\n\t-ACTION GAMES-");
+                for(int countOfGames = 0; countOfGames < listOfAllPlayer[count].playedActionGames.Count; countOfGames++)
+                {
+                    Console.WriteLine("\t\t" + listOfAllPlayer[count].playedActionGames[countOfGames].Name +
+                        " (Rating: " + listOfAllPlayer[count].playedActionGames[countOfGames].Rating + ")");
+                }
+
+                Console.WriteLine("\n\t-ADVENTURE GAMES-");
+                for (int countOfGames = 0; countOfGames < listOfAllPlayer[count].playedAdventureGames.Count; countOfGames++)
+                {
+                    Console.WriteLine("\t\t" + listOfAllPlayer[count].playedAdventureGames[countOfGames].Name +
+                        " (Rating: " + listOfAllPlayer[count].playedAdventureGames[countOfGames].Rating + ")");
+                }
+
+                Console.WriteLine("\n\t-SURVIVAL GAMES-");
+                for (int countOfGames = 0; countOfGames < listOfAllPlayer[count].playedSurvivalGames.Count; countOfGames++)
+                {
+                    Console.WriteLine("\t\t" + listOfAllPlayer[count].playedSurvivalGames[countOfGames].Name +
+                        " (Rating: " + listOfAllPlayer[count].playedSurvivalGames[countOfGames].Rating + ")");
+                }
             }
         }
     }

@@ -11,12 +11,12 @@ namespace CmdLibrary
     {
         XmlSerializer xml = new XmlSerializer(typeof(List<Player>));
 
-        public void SavingPlayers(Player player,bool needTODelete)
+        public void SavingPlayers(Player player,bool needToDelete)
         {   
             if(File.Exists("players.xml"))
             {
                 List<Player> loadedPlayersList=LoadPlayers();
-                if(needTODelete)
+                if(needToDelete)
                 {
                     for(int count=0;count<loadedPlayersList.Count;count++)
                     {

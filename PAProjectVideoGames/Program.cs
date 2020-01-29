@@ -11,8 +11,6 @@ namespace PAProject
         static void Main(string[] args)
         {
             UI ui = new UI();
-            DataManager manager = new DataManager();
-            Menu menu = new Menu();
 
             ui.PrintMenu();
             string choice = ui.InputChoice(args);
@@ -33,28 +31,9 @@ namespace PAProject
                 else if (choice == "create")
                 {
                     string type = ui.GameTypeFromUser();
-
                     string playerName = ui.PlayerNameFromUser();
-                    Player player = new Player(playerName);
-
-                    if(File.Exists("players.xml"))
-                    {
-                        List<Player> players=manager.LoadPlayers();
-                        for(int count=0;count<players.Count;count++)
-                        {
-                            if(players[count].Name.Equals(playerName))
-                            {
-                                menu.TypeChoosing(type, players[count]);
-                                manager.SavingPlayers(players[count],true);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        menu.TypeChoosing(type, player);
-                        manager.SavingPlayers(player,false);
-                    }
+                    ui.Creating(playerName, type);
+                    
                 }
                 else if(choice == "remove")
                 {
