@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PAProject
+namespace ApiLib
 {
     public abstract class VideoGame
     {
@@ -13,6 +13,10 @@ namespace PAProject
 
         public abstract void EffectToPlayer(Player player);
 
+        public VideoGame()
+        {
+
+        }
         public VideoGame(string developer,string name,double rating,string type)
         {
             Developer = developer;

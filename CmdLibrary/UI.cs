@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ApiLib;
 
-namespace PAProject
+namespace CmdLibrary
 {
     public class UI
     {
@@ -59,6 +60,22 @@ namespace PAProject
             }
 
             return userInputs;
+        }
+
+        public void ErrorMessage(string message)
+        {
+            Console.WriteLine("ERROR occuered: " + message);
+        }
+
+
+        public void ListAllSavedPlayers()
+        {
+            DataManager manager = new DataManager();
+            List<Player> listOfAllPlayer=manager.LoadPlayers();
+            for(int count=0;count<listOfAllPlayer.Count;count++)
+            {
+                Console.WriteLine("\t"+listOfAllPlayer[count].Name);
+            }
         }
     }
 }

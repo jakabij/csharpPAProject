@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PAProject
+namespace ApiLib
 {
-    class ActionGame : VideoGame
+    public class ActionGame : VideoGame
     {
+        public ActionGame()
+        {
+
+        }
         public ActionGame(string developer, string name, double rating, string type) 
             :base(developer, name, rating, type)
         {
@@ -13,7 +17,7 @@ namespace PAProject
 
         public override void EffectToPlayer(Player player)
         {
-            player.PlayedActionGames.Add(base.Name);
+            player.playedActionGames.Add(base.Name);
         }
     }
 }

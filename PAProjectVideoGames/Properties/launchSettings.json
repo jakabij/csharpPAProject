@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "PAProject": {
+    "PAProjectVideoGames": {
       "commandName": "Project",
       "commandLineArgs": "create"
     }

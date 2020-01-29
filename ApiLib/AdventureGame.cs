@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PAProject
+namespace ApiLib
 {
-    class AdventureGame : VideoGame
+    public class AdventureGame : VideoGame
     {
+        public AdventureGame()
+        {
+
+        }
         public AdventureGame(string developer, string name, double rating, string type) 
             :base(developer, name, rating, type)
         {
